@@ -1,12 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import {  Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import LandingScreen from './screens/LandingScreen';
+import CreateAccountScreen from './screens/CreateAccountScreen';
 
 export default function App() {
+
+  const Stack = createNativeStackNavigator();
   return (
-    <View >
-      <Text className= "text-teal-300">Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Landing"
+          component={LandingScreen}
+          options={{ presentation: "fullScreenModal", headerShown: false }}
+        />
+        <Stack.Screen
+          name="CreateAccount"
+          component={CreateAccountScreen}
+          options={{ presentation: "fullScreenModal", headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
