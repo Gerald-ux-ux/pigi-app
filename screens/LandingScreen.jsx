@@ -1,41 +1,18 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 import React, { useState, useEffect } from "react";
 import { TouchableOpacity } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
-import * as Font from "expo-font";
-import { AppLoading } from "expo";
+import { Fonts } from "../components/Font";
 
 const LandingScreen = () => {
-  const [dataLoaded, setDataLoaded] = useState(false);
-
-  useEffect(() => {
-    async function loadFonts() {
-      await Font.loadAsync({
-        "SpaceGrotesk-Regular": require("../assets/fonts/SpaceGrotesk-Regular.ttf"),
-        "SpaceGrotesk-Bold": require("../assets/fonts/SpaceGrotesk-Bold.ttf"),
-        // add more fonts here if needed
-      });
-      setDataLoaded(true);
-    }
-    loadFonts();
-  }, []);
-
   const navigation = useNavigation();
 
   const handlePress = () => [navigation.navigate("CreateAccount")];
 
-  // if (!dataLoaded) {
-  //   return (
-  //     <View>
-  //       <AppLoading />
-  //     </View>
-  //   );
-  // }
-
   return (
     <View className="bg-white flex-1">
-      <View className='flex-1 '>
+      <View className="flex-1 ">
         <View
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
         >
@@ -48,15 +25,15 @@ const LandingScreen = () => {
       </View>
 
       <Text
-        className="font-bold text-4xl pb-10 pl-4 pt-3"
-        style={{ fontFamily: "SpaceGrotesk-Regular" }}
+        className="font-bold text-4xl pb-10 pl-4 pt-3 justify-start"
+
       >
         Investment made easy
       </Text>
 
-      <View className="px-6 py-4">
+      <View className="px-6 py-6">
         <TouchableOpacity
-          className="bg-[#60D19A] p-4 rounded-full items-center justify-center"
+          className="bg-[#60D19A] p-4 mx-8 rounded-full items-center justify-center"
           onPress={handlePress}
         >
           <Text

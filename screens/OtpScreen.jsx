@@ -20,6 +20,21 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
     RESEND_OTP_TIME_LIMIT
   );
 
+  const [correctOTP, setCorrectOTP] = useState("123456");
+  const [otp, setOTP] = useState("");
+
+  const handleOtpChange = (text: string) => {
+    setOTP(text);
+  };
+
+  const handleOtpSubmit = () => {
+    if (correctOTP.includes(otp)) {
+      navigation.navigate("AddPhone");
+    } else {
+      alert("Otp does not match");
+    }
+  };
+
   const startResendOtpTimer = (start = Boolean) => {
     if (resendOtpTimerInterval) {
       clearInterval(resendOtpTimerInterval);
@@ -34,7 +49,6 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
       }, 1000);
     }
   };
-
   useEffect(() => {
     startResendOtpTimer(false);
     return () => {
@@ -48,12 +62,22 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
     //clear input field
     setValue("");
     setResendButtonDisabledTime(RESEND_OTP_TIME_LIMIT);
+
     startResendOtpTimer(true); // start the timer when the Resend Code button is pressed
 
     // resend OTP Api call
     // todo
     console.log("todo: Resend OTP");
   }
+
+  useEffect(() => {
+    startResendOtpTimer();
+    return () => {
+      if (resendOtpTimerInterval) {
+        clearInterval(resendOtpTimerInterval);
+      }
+    };
+  }, [resendButtonDisabledTime]);
 
   const navigation = useNavigation();
 
@@ -65,29 +89,26 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
     setValue,
   });
 
-  useEffect(() => {
-    startResendOtpTimer();
-    return () => {
-      if (resendOtpTimerInterval) {
-        clearInterval(resendOtpTimerInterval);
-      }
-    };
-  }, [resendButtonDisabledTime]);
-
   return (
-    <SafeAreaView>
-      <View className="py-4 pl-2">
+    <SafeAreaView className="flex-1 bg-white pt-8 ">
+      {/* ============= Header =========== */}
+      <View className="mx-4 flex justify-center pb-8 ">
         <Text className="pl-2 text-4xl">Is this you?</Text>
         <Text className="pl-2 pt-2 text-2xl">
           Enter the code we just sent to your e-mail
         </Text>
       </View>
-      <View className="py-6">
+
+      {/* ============= Cell Input =========== */}
+      <View className="mx-4 flex-1">
         <CodeField
           ref={ref}
           {...props}
           value={value}
-          onChangeText={setValue}
+          onChangeText={(text: string) => {
+            setValue(text);
+            handleOtpChange(text);
+          }}
           cellCount={CELL_COUNT}
           rootStyle={{ marginBottom: 20, paddingHorizontal: 12 }}
           keyboardType="number-pad"
@@ -100,7 +121,7 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
                 width: 40,
                 marginLeft: index !== 0 ? 10 : 0,
                 borderBottomWidth: 3,
-                borderColor: isFocused ? "#00FF00" : "#D9D9D9",
+                borderColor: isFocused ? "#000000" : "#D9D9D9",
                 justifyContent: "center",
                 alignItems: "center",
               }}
@@ -117,23 +138,24 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
           )}
         />
       </View>
-      <View>
+
+      <View className="flex-1 absolute right-0 bottom-96 mx-20 pb-2">
         <TouchableOpacity onPress={onResendOtpButtonPress}>
-          <View className="flex-row ">
-            <Text className="text-[#343558] underline underline-offset-8  pr-16 absolute right-0 ">
+          <View className="flex-row" style={{ flexWrap: "nowrap" }}>
+            <Text className="text-[#343558] underline underline-offset-8">
               Resend Code
+            </Text>
+            <Text className="pr-2 -right-16 absolute -bottom-0 text-[#b1b1b1]">
+              in {resendButtonDisabledTime}s
             </Text>
           </View>
         </TouchableOpacity>
-        <Text className="pr-2 right-0 absolute -bottom-4 text-[#b1b1b1]">
-          in {resendButtonDisabledTime}s
-        </Text>
       </View>
 
-      <View className="py-72 px-6">
+      <View className="pb-4 mx-8">
         <TouchableOpacity
           className="bg-[#60D19A]  p-3 rounded-full items-center justify-center"
-          onPress={() => navigation.navigate("AddPhone")}
+          onPress={handleOtpSubmit}
         >
           <Text className="text-[#252642] text-lg text-center">Confirm</Text>
         </TouchableOpacity>
