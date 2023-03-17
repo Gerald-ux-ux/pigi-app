@@ -49,6 +49,8 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
       }, 1000);
     }
   };
+
+                                                   //fix timeout that happens when the screen launches//
   useEffect(() => {
     startResendOtpTimer(false);
     return () => {
@@ -93,8 +95,8 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
     <SafeAreaView className="flex-1 bg-white pt-8 ">
       {/* ============= Header =========== */}
       <View className="mx-4 flex justify-center pb-8 ">
-        <Text className="pl-2 text-4xl">Is this you?</Text>
-        <Text className="pl-2 pt-2 text-2xl">
+        <Text className=" text-[#333333] pl-2 text-4xl">Is this you?</Text>
+        <Text className=" text-[#333333] pl-2 pt-2 text-2xl">
           Enter the code we just sent to your e-mail
         </Text>
       </View>
