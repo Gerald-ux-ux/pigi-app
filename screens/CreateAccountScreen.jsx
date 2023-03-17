@@ -20,7 +20,7 @@ const CreateAccountScreen = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-white pt-8 ">
-      {/* ============= HEADER =========== */}
+      {/* ============= Header =========== */}
       <View className="mx-4 flex justify-center pb-4">
         <Text className="text-[#333333] text-4xl ">Welcome</Text>
         <Text className="text-[#333333] text-2xl ">

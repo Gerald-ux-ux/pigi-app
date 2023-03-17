@@ -8,6 +8,7 @@ import OtpScreen from './screens/OtpScreen';
 import AddPhoneScreen from './screens/AddPhoneScreen';
 import PhoneOtpScreen from './screens/PhoneOtpScreen';
 import HomeScreen from './screens/HomeScreen';
+import InvestmentsScreen from "./screens/InvestmentsScreen";
 
 export default function App() {
 
@@ -48,6 +49,11 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
+          options={{ presentation: "fullScreenModal", headerShown: false }}
+        />
+        <Stack.Screen
+          name="Investments"
+          component={InvestmentsScreen}
           options={{ presentation: "fullScreenModal", headerShown: false }}
         />
       </Stack.Navigator>

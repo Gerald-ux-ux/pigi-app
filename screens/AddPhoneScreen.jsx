@@ -11,6 +11,7 @@ import React, { useState } from "react";
 import { CountryFlag } from "react-native-flag-creator";
 import { useNavigation } from "@react-navigation/native";
 
+
 const AddPhoneScreen = () => {
   const handleOnpress = () => {
     [navigation.navigate("PhoneOtp")];
@@ -20,6 +21,7 @@ const AddPhoneScreen = () => {
 
   const [phoneNumber, setPhoneNumber] = useState("");
   const handlePhoneNumberChange = (text) => {
+    
     if (/^\d{0,9}$/.test(text)) {
       setPhoneNumber(text);
       if (text.length === 9) {
@@ -44,25 +46,27 @@ const AddPhoneScreen = () => {
       <View className="flex-1 items-center justify-center">
         <View className="flex-row pb-8 items-center">
           <CountryFlag
-            countryCode="KE"
+            countryCode="US"
             className="h-10 w-10 mx-4 bg  rounded-3xl"
             style={{
               backgroundColor: "gray",
               opacity: 0.9,
             }}
           />
-          <Text className="pr-4 text-[#000000] font-extrabold">+254</Text>
-          <TextInput
-            style={{
-              width: 200,
-            }}
-            placeholder="Enter Phone Number"
-            keyboardType="numeric"
-            className="bg-[#f5f7fa] rounded-2xl p-6  "
-            value={phoneNumber}
-            maxLength={9}
-            onChangeText={handlePhoneNumberChange}
-          ></TextInput>
+          <View className="flex-row bg-[#f5f7fa] p-2 rounded-2xl items-center">
+            <Text className="text-[#000000] font-extrabold">+254</Text>
+            <TextInput
+              style={{
+                width: 200,
+              }}
+              placeholder="Enter Phone Number"
+              keyboardType="numeric"
+              className="bg-[#f5f7fa] rounded-2xl p-4  "
+              value={phoneNumber}
+              maxLength={9}
+              onChangeText={handlePhoneNumberChange}
+            ></TextInput>
+          </View>
         </View>
 
         <View className="pb-36">

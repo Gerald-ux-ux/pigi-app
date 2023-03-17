@@ -7,6 +7,7 @@ import {
 } from "react-native-confirmation-code-field";
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { SimpleModal } from '../components/SimpleModal'
 
 interface PhoneOtpScreenProps {}
 
@@ -33,6 +34,7 @@ const PhoneOtpScreen: React.FC<PhoneOtpScreens> = () => {
     } else {
       alert("Otp does not match");
     }
+    setShowModal(true);
   };
 
   const startResendOtpTimer = (start = Boolean) => {
@@ -59,6 +61,8 @@ const PhoneOtpScreen: React.FC<PhoneOtpScreens> = () => {
       }
     };
   }, []);
+
+    const [showModal, setShowModal] = useState(false);
 
   function onResendOtpButtonPress() {
     //clear input field
@@ -97,7 +101,7 @@ const PhoneOtpScreen: React.FC<PhoneOtpScreens> = () => {
       <View className="mx-4 flex justify-center pb-8 ">
         <Text className=" text-[#333333] pl-2 text-4xl">Is this you?</Text>
         <Text className=" text-[#333333] pl-2 pt-2 text-2xl">
-          Enter the code we just sent to your e-mail
+          Enter the code we just sent to your number ending in 4417
         </Text>
       </View>
 
@@ -155,6 +159,8 @@ const PhoneOtpScreen: React.FC<PhoneOtpScreens> = () => {
       </View>
 
       <View className="pb-4 mx-8">
+        {/* <View>{showModal && <SimpleModal />}</View> */}
+
         <TouchableOpacity
           className="bg-[#60D19A]  p-3 rounded-full items-center justify-center"
           onPress={handleOtpSubmit}
