@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { View, Text } from "react-native";
+import React from "react";
 
-export class InvestmentsScreen extends Component {
-  render() {
-    return (
-      <View>
-        <Text> textInComponent </Text>
-      </View>
-    )
-  }
-}
 
-export default InvestmentsScreen
+const InvestmentsScreen = () => {
+  return (
+    <View>
+   
+      <Text>InvestmentsScreen</Text>
+    </View>
+  );
+};
+
+export default InvestmentsScreen;

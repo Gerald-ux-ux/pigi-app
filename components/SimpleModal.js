@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   Dimensions,
   StyleSheet,
+  Modal,
 } from "react-native";
 import React from "react";
 import { CheckCircleIcon } from "react-native-heroicons/solid";
@@ -14,7 +15,7 @@ import { useNavigation } from "@react-navigation/native";
 const HEIGHT_MODAL = 200;
 const WIDTH = Dimensions.get("window").width;
 
-const ModalView = () => {
+export const ModalView = ({ visible, onClose }) => {
   const navigation = useNavigation();
   const confettiRef = useRef(null);
   useEffect(() => {
@@ -27,23 +28,30 @@ const ModalView = () => {
   }, []);
 
   return (
-    <TouchableOpacity disabled={true} style={styles.container}>
-      <View style={[styles.modal, styles.centered]}>
-        <CheckCircleIcon
-          size={40}
-          color="#008631"
-          style={{ marginBottom: 20 }}
-        />
-        <Text className="text-3xl text-center">Number confirmed and added</Text>
-      </View>
-      <TouchableOpacity
-        onPress={() => navigation.navigate("Home")}
-        style={[styles.buttonContainer, styles.centered]}
-      >
-        <Text style={styles.buttonText}>Go to home</Text>
+    <Modal visible={visible} transparent={true} animationType="fade">
+      <TouchableOpacity disabled={true} style={styles.container}>
+        <View style={[styles.modal, styles.centered]}>
+          <CheckCircleIcon
+            size={40}
+            color="#008631"
+            style={{ marginBottom: 20 }}
+          />
+          <Text className="text-3xl text-center">
+            Number confirmed and added
+          </Text>
+        </View>
+        <TouchableOpacity
+          onPress={() => {
+            onClose();
+            navigation.navigate("Home");
+          }}
+          style={[styles.buttonContainer, styles.centered]}
+        >
+          <Text style={styles.buttonText}>Go to home</Text>
+        </TouchableOpacity>
+        <Confetti ref={confettiRef} />
       </TouchableOpacity>
-      <Confetti ref={confettiRef} />
-    </TouchableOpacity>
+    </Modal>
   );
 };
 
@@ -52,7 +60,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.5)", // Add a semi-transparent background
+    backgroundColor: "rgba(0, 0, 0, 0.7)", // Add a semi-transparent background
   },
   modal: {
     height: HEIGHT_MODAL,
@@ -66,14 +74,14 @@ const styles = StyleSheet.create({
   modalText: {
     fontSize: 16,
     fontWeight: "bold",
-    marginBottom: 20,
+    marginBottom: 70,
   },
   centered: {
     alignSelf: "center",
   },
   buttonContainer: {
     height: 50,
-    width: WIDTH - 200,
+    width: WIDTH - 220,
     marginTop: 20,
     backgroundColor: "#F2FAFF",
     borderRadius: 24,

@@ -9,6 +9,7 @@ import AddPhoneScreen from './screens/AddPhoneScreen';
 import PhoneOtpScreen from './screens/PhoneOtpScreen';
 import HomeScreen from './screens/HomeScreen';
 import InvestmentsScreen from "./screens/InvestmentsScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 export default function App() {
 
@@ -54,6 +55,11 @@ export default function App() {
         <Stack.Screen
           name="Investments"
           component={InvestmentsScreen}
+          options={{ presentation: "fullScreenModal", headerShown: false }}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
           options={{ presentation: "fullScreenModal", headerShown: false }}
         />
       </Stack.Navigator>

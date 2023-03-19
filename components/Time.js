@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text } from "react-native";
 
-const Time = () => {
+export const Time  = () => {
   const [greeting, setGreeting] = useState("");
 
   useEffect(() => {
@@ -17,9 +17,11 @@ const Time = () => {
     }
   }, []);
 
-    return <View>
-        <Text>{greeting}</Text>
-  </View>;
+    return (
+      <View className='items-center justify-center'>
+        <Text className="text-[#242424] text-base py-1  ">{greeting}</Text>
+      </View>
+    );
 };
 
 export default Time;
