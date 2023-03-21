@@ -45,16 +45,19 @@ const AddPhoneScreen = () => {
 
       <View className="flex-1 items-center justify-center">
         <View className="flex-row pb-8 items-center">
-          <CountryFlag
-            countryCode="US"
-            className="h-10 w-10 mx-4 bg  rounded-3xl"
-            style={{
-              backgroundColor: "gray",
-              opacity: 0.9,
-            }}
-          />
+          <View className="bg-[#f5f7fa] p-3 items-center justify-center rounded-2xl mx-2">
+            <CountryFlag
+              countryCode="KE"
+              className="h-10 w-10 rounded-3xl"
+              style={{
+                backgroundColor: "gray",
+                opacity: 0.9,
+              }}
+            />
+          </View>
+
           <View className="flex-row bg-[#f5f7fa] p-2 rounded-2xl items-center">
-            <Text className="text-[#000000] font-extrabold">+254</Text>
+            <Text className="text-[#000000] font-bold">+254</Text>
             <TextInput
               style={{
                 width: 200,

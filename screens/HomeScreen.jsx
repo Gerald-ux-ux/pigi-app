@@ -9,19 +9,13 @@ import {
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { BellIcon } from "react-native-heroicons/outline";
 import { Time } from "../components/Time";
 import { ArrowUpIcon } from "react-native-heroicons/solid";
 import { PlusIcon } from "react-native-heroicons/solid";
 import { Footer } from "../components/Footer";
+import { Bell } from "../components/Bell";
 
 const HomeScreen = () => {
-  const [hasNotifications, setHasNotifications] = useState(false);
-
-  const handleNotificationPress = () => {
-    setHasNotifications(true);
-  };
-
   const navigation = useNavigation();
 
   const handlePress = () => {
@@ -41,31 +35,7 @@ const HomeScreen = () => {
           <Text className="text-[#242424] items-center justify-center  text-base  mx-2">
             Good <Time />!
           </Text>
-
-          <View className="absolute right-0">
-            <TouchableOpacity onPress={handleNotificationPress}>
-              <BellIcon size={30} color="#000000" />
-              {hasNotifications > 0 && (
-                <View
-                  style={{
-                    position: "absolute",
-                    top: 3,
-                    right: 5,
-                    backgroundColor: "red",
-                    borderRadius: 10,
-                    width: 7,
-                    height: 7,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <Text style={{ color: "white", fontSize: 8 }}>
-                    {hasNotifications}
-                  </Text>
-                </View>
-              )}
-            </TouchableOpacity>
-          </View>
+          <Bell />
         </View>
 
         <ScrollView>
@@ -93,16 +63,17 @@ const HomeScreen = () => {
               <Text className="text-[#252642] text-lg text-center">Invest</Text>
             </TouchableOpacity>
           </View>
+
           {/* ============= Insight Section =========== */}
-          <View className="bg-white rounded-2xl p-20 mx-4 my-6">
+          <View className="bg-white rounded-2xl p-14 mx-4 my-6">
             <View className="flex-row ">
               <View className=" absolute bottom-0 items-center justify-center -mx-12 my-8 ">
-                <Text className="font-medium text-lg">Insights</Text>
+                <Text className="font-medium text-xs">Insights</Text>
               </View>
               <View className="absolute right-0 bottom-0 items-center justify-center -mx-12 my-8">
-                <Text className="justify-center items-center text-lg font-medium text-[#000000]">
+                <Text className="justify-center items-center text-xs font-medium text-[#000000]">
                   <ArrowUpIcon
-                    size={20}
+                    size={12}
                     color="#109434"
                     className="justify-center items-center"
                   />
@@ -111,21 +82,23 @@ const HomeScreen = () => {
               </View>
             </View>
           </View>
-          {/* ============= Insight Section *GRAPHS* =========== */}
 
+          {/* ============= Insight Section *GRAPHS* =========== */}
           <View>
             <View></View>
           </View>
-
           {/* ============= Investment Section =========== */}
+
           <View className="mx-4">
             <View className="flex-row">
-              <Text className="text-[#4F4F4F] text-lg">My Investments</Text>
+              <Text className="text-[#4F4F4F] text-sm">My Investments</Text>
               <View className="absolute right-0">
                 <TouchableOpacity>
                   <View className="flex-row  items-center">
-                    <PlusIcon size={20} color="#60D19A" />
-                    <Text className="text-[#60D19A] text-lg ">Add</Text>
+                    <PlusIcon size={15} color="#60D19A" />
+                    <Text className="text-[#60D19A]  text-sm ">
+                      Add
+                    </Text>
                   </View>
                 </TouchableOpacity>
               </View>
@@ -173,7 +146,6 @@ const HomeScreen = () => {
                 </View>
               </View>
             </TouchableOpacity>
-
             <TouchableOpacity>
               <View className="my-2">
                 <View className="flex-row bg-white p-2 rounded-lg">

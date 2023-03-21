@@ -1,4 +1,4 @@
-const Fonts = {
+export const Fonts = {
   "SpaceGrotesk-Regular": require("../assets/fonts/SpaceGrotesk-Regular.ttf"),
   "SpaceGrotesk-Bold": require("../assets/fonts/SpaceGrotesk-Bold.ttf"),
   "SpaceGrotesk-Light": require("../assets/fonts/SpaceGrotesk-Light.ttf"),
@@ -6,4 +6,4 @@ const Fonts = {
   "SpaceGrotesk-Medium": require("../assets/fonts/SpaceGrotesk-Medium.ttf"),
 };
 
-export { Fonts };
+export default Fonts;

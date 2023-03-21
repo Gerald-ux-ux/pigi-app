@@ -5,8 +5,11 @@ import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Fonts } from "../components/Font";
 
+  const Regular = Fonts; 
 
 const LandingScreen = () => {
+
+
   const navigation = useNavigation();
 
   const handlePress = () => [navigation.navigate("CreateAccount")];
@@ -27,7 +30,7 @@ const LandingScreen = () => {
 
       <Text
         className="font-bold text-4xl pb-10 pl-4 pt-3 justify-start"
-
+        
       >
         Investment made easy
       </Text>
