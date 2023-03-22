@@ -168,17 +168,13 @@ const PhoneOtpScreen: React.FC<PhoneOtpScreens> = () => {
         </View>
 
         <View className="pb-4 mx-8">
-          {/* <BlurView
-            reducedTransparencyFallbackColor="gray"
-            blurType="light"
-            blurAmount={20}
-          > */}
+
           <View>
             {showModal && (
               <ModalView visible={modalVisible} onClose={handleCloseModal} />
             )}
           </View>
-          {/* </BlurView> */}
+      
           <TouchableOpacity
             className="bg-[#60D19A]  p-3 rounded-full items-center justify-center"
             onPress={handleOtpSubmit}

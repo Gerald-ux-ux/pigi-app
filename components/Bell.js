@@ -11,7 +11,7 @@ import { BellIcon } from "react-native-heroicons/outline";
 import React, { useState, useEffect } from "react";
 
 export const Bell = () => {
-  const [hasNotifications, setHasNotifications] = useState(false);
+  const [hasNotifications, setHasNotifications] = useState(true);
   const handleNotificationPress = () => {
     setHasNotifications(true);
   };
