@@ -4,7 +4,7 @@ import { HomeIcon } from "react-native-heroicons/outline";
 import { ArrowsUpDownIcon } from "react-native-heroicons/outline";
 import { UserIcon } from "react-native-heroicons/outline";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { InvestmentPopUp } from "./InvestmentPopUp"
+import { InvestmentPopUp } from "./InvestmentPopUp";
 
 export const Footer = () => {
   const navigation = useNavigation();
@@ -15,11 +15,15 @@ export const Footer = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
+
+
   const handleCloseModal = () => {
     setModalVisible(false);
   };
 
   const handlePress = () => {
+    setShowModal(true);
+    // [navigation.navigate("Amount")]
     setModalVisible(true);
   };
 
@@ -55,7 +59,11 @@ export const Footer = () => {
         <View className="bg-[#60D19A] rounded-full p-2 mx- items-center justify-center">
           <View>
             {showModal && (
-              <InvestmentPopUp visible={modalVisible} onClose={handleCloseModal} />
+        <InvestmentPopUp
+                visible={modalVisible}
+                onClose={handleCloseModal}
+              
+              />      
             )}
           </View>
           <TouchableOpacity onPress={handlePress}>

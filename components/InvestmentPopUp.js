@@ -7,9 +7,8 @@ import {
   Modal,
 } from "react-native";
 import React from "react";
-import { CheckCircleIcon } from "react-native-heroicons/solid";
-import Confetti from "react-native-confetti";
-import { useEffect, useRef } from "react";
+import { ArrowUpIcon, ArrowDownIcon } from "react-native-heroicons/solid";
+
 import { useNavigation } from "@react-navigation/native";
 
 const HEIGHT_MODAL = 200;
@@ -17,39 +16,63 @@ const WIDTH = Dimensions.get("window").width;
 
 export const InvestmentPopUp = ({ visible, onClose }) => {
   const navigation = useNavigation();
-  const confettiRef = useRef(null);
-  useEffect(() => {
-    if (confettiRef.current) {
-      confettiRef.current.startConfetti();
-      setTimeout(() => {
-        confettiRef.current.stopConfetti();
-      }, 9000);
-    }
-  }, []);
 
   return (
     <Modal visible={visible} transparent={true} animationType="fade">
       <TouchableOpacity disabled={true} style={styles.container}>
         <View style={[styles.modal, styles.centered]}>
-          <CheckCircleIcon
-            size={40}
-            color="#008631"
-            style={{ marginBottom: 20 }}
-          />
-          <Text className="text-3xl text-center">
-            Number confirmed and added
-          </Text>
+          <Text className="mx-6 py-5 font-medium">Select an option</Text>
+
+          <View className="pt-1">
+            <TouchableOpacity
+              className=""
+              onPress={() => {
+                navigation.navigate("Home");
+              }}
+            >
+              <View className="flex-row my-2 items-center">
+                <View className="bg-[#D9D9D9] rounded-full p-2 justify-start items-start mx-4">
+                  <ArrowUpIcon
+                    size={15}
+                    color="#008631"
+                    // style={{ marginBottom: 20 }}
+                  />
+                </View>
+
+                <Text className="text-sm font-normal  text-[#2A2D2F]">
+                  Invest
+                </Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("Home");
+              }}
+            >
+              <View className="flex-row my-2 items-center">
+                <View className="bg-[#D9D9D9] rounded-full p-2 justify-start items-start mx-4">
+                  <ArrowDownIcon
+                    size={15}
+                    color="#EB476F"
+                    // style={{ marginBottom: 20 }}
+                  />
+                </View>
+
+                <Text className="text-sm font-normal  text-[#2A2D2F]">
+                  Withdraw
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
         <TouchableOpacity
           onPress={() => {
             onClose();
-            navigation.navigate("Home");
           }}
           style={[styles.buttonContainer, styles.centered]}
         >
-          <Text style={styles.buttonText}>Go to home</Text>
+          <Text style={styles.buttonText}>Cancel</Text>
         </TouchableOpacity>
-        <Confetti ref={confettiRef} />
       </TouchableOpacity>
     </Modal>
   );
@@ -58,18 +81,16 @@ export const InvestmentPopUp = ({ visible, onClose }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.7)", // Add a semi-transparent background
+    justifyContent: "flex-end",
+
+    backgroundColor: "rgba(0, 0, 0, 0.7)",
   },
   modal: {
+    bottom: 30,
     height: HEIGHT_MODAL,
     width: WIDTH - 80,
     backgroundColor: "white",
-    borderRadius: 24,
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 1, // Set the z-index to appear above the blur overlay
+    borderRadius: 20,
   },
   modalText: {
     fontSize: 16,
@@ -80,10 +101,11 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   buttonContainer: {
+    bottom: 30,
     height: 50,
-    width: WIDTH - 220,
+    width: WIDTH - 80,
     marginTop: 20,
-    backgroundColor: "#F2FAFF",
+    backgroundColor: "#FfFfFF",
     borderRadius: 24,
     justifyContent: "center",
     alignItems: "center",

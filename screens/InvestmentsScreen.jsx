@@ -55,12 +55,19 @@ const InvestmentsScreen = () => {
         {/* ============= Hero Section =========== */}
         <View className="flex-row ">
           <View className="pl-4 items-start justify-center  ">
-            <TouchableOpacity className="bg-[#60D19A] h-16 w-40 justify-center  rounded-3xl ">
+            <TouchableOpacity
+              className="bg-[#60D19A] h-16 w-40 justify-center  rounded-3xl
+            "
+              onPress={() => navigation.navigate("Amount")}
+            >
               <Text className="text-[#252642] text-lg text-center">Invest</Text>
             </TouchableOpacity>
           </View>
           <View className="my-8 mx-6 items-start justify-center  ">
-            <TouchableOpacity className="bg-[#E0E0E0] h-16 w-40 justify-center  rounded-3xl ">
+            <TouchableOpacity
+              className="bg-[#E0E0E0] h-16 w-40 justify-center  rounded-3xl "
+              onPress={() => navigation.navigate("Withdraw")}
+            >
               <Text className="text-[#EB476F] text-lg text-center">
                 Withdraw
               </Text>

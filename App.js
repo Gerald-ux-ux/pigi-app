@@ -10,6 +10,8 @@ import PhoneOtpScreen from './screens/PhoneOtpScreen';
 import HomeScreen from './screens/HomeScreen';
 import InvestmentsScreen from "./screens/InvestmentsScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import AmountScreen from "./screens/AmountScreen";
+import WithdrawScreen from "./screens/WithdrawScreen";
 
 export default function App() {
 
@@ -60,6 +62,16 @@ export default function App() {
         <Stack.Screen
           name="Profile"
           component={ProfileScreen}
+          options={{ presentation: "fullScreenModal", headerShown: false }}
+        />
+        <Stack.Screen
+          name="Amount"
+          component={AmountScreen}
+          options={{ presentation: "fullScreenModal", headerShown: false }}
+        />
+        <Stack.Screen
+          name="Withdraw"
+          component={WithdrawScreen}
           options={{ presentation: "fullScreenModal", headerShown: false }}
         />
       </Stack.Navigator>
