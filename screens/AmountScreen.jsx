@@ -39,7 +39,7 @@ const countries = ["Egypt", "Canada", "Australia", "Ireland"];
           <ChevronLeftIcon size={22} color="#000000" />
         </TouchableOpacity>
         <View className="items-center justify-center mx-16 ">
-          <Text className="text-center text-[#4F4F4F] text-x font-medium">
+          <Text className="text-center text-[#4F4F4F] text-x font-bold">
             Investment Amount
           </Text>
         </View>
@@ -104,8 +104,8 @@ const countries = ["Egypt", "Canada", "Australia", "Ireland"];
           <Text className="mx-6 absolute right-0">Fund?</Text>
         </View>
         <View className="bg-[#F5F7FA] mx-4">
-          <SelectDropdown 
-            className='my-2'
+          <SelectDropdown
+            className="my-2"
             data={countries}
             onSelect={(selectedItem, index) => {
               console.log(selectedItem, index);

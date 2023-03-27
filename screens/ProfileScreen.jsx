@@ -18,8 +18,15 @@ import {
   ExclamationCircleIcon,
   FingerPrintIcon,
 } from "react-native-heroicons/outline";
+import { useNavigation } from "@react-navigation/native";
 
 const ProfileScreen = () => {
+  const navigation = useNavigation();
+
+  const handlePress = () => {
+    [navigation.navigate("Card")];
+  };
+
   return (
     <>
       <SafeAreaView className="flex-1 pt-8">
@@ -39,7 +46,10 @@ const ProfileScreen = () => {
           </View>
 
           <View className="justify-center my-6 items-center">
-            <TouchableOpacity className="bg-white p-4 rounded-2xl">
+            <TouchableOpacity
+              onPress={handlePress}
+              className="bg-white p-4 rounded-2xl"
+            >
               <Text>+ Add payment method</Text>
             </TouchableOpacity>
           </View>

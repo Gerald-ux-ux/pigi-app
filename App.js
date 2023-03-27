@@ -12,6 +12,12 @@ import InvestmentsScreen from "./screens/InvestmentsScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import AmountScreen from "./screens/AmountScreen";
 import WithdrawScreen from "./screens/WithdrawScreen";
+import AddCardScreen from "./screens/AddCardScreen";
+import AddMpesaScreen from "./screens/AddMpesaScreen";
+import AddBankScreen from "./screens/AddBankScreen";
+import WithdrawalAccountScreen from "./screens/WithdrawalAccountScreen";
+import WithdrawalSummaryScreen from "./screens/WithdrawalSummaryScreen";
+
 
 export default function App() {
 
@@ -72,6 +78,31 @@ export default function App() {
         <Stack.Screen
           name="Withdraw"
           component={WithdrawScreen}
+          options={{ presentation: "fullScreenModal", headerShown: false }}
+        />
+        <Stack.Screen
+          name="Card"
+          component={AddCardScreen}
+          options={{ presentation: "fullScreenModal", headerShown: false }}
+        />
+        <Stack.Screen
+          name="Mpesa"
+          component={AddMpesaScreen}
+          options={{ presentation: "fullScreenModal", headerShown: false }}
+        />
+        <Stack.Screen
+          name="Bank"
+          component={AddBankScreen}
+          options={{ presentation: "fullScreenModal", headerShown: false }}
+        />
+        <Stack.Screen
+          name="WithdrawalAccount"
+          component={WithdrawalAccountScreen}
+          options={{ presentation: "fullScreenModal", headerShown: false }}
+        />
+        <Stack.Screen
+          name="WithdrawalSummary"
+          component={WithdrawalSummaryScreen}
           options={{ presentation: "fullScreenModal", headerShown: false }}
         />
       </Stack.Navigator>

@@ -15,8 +15,6 @@ export const Footer = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-
-
   const handleCloseModal = () => {
     setModalVisible(false);
   };
@@ -59,11 +57,10 @@ export const Footer = () => {
         <View className="bg-[#60D19A] rounded-full p-2 mx- items-center justify-center">
           <View>
             {showModal && (
-        <InvestmentPopUp
+              <InvestmentPopUp
                 visible={modalVisible}
                 onClose={handleCloseModal}
-              
-              />      
+              />
             )}
           </View>
           <TouchableOpacity onPress={handlePress}>

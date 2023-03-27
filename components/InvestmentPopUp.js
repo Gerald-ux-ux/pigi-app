@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   modal: {
     bottom: 30,
     height: HEIGHT_MODAL,
-    width: WIDTH - 80,
+    width: WIDTH - 30,
     backgroundColor: "white",
     borderRadius: 20,
   },
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     bottom: 30,
     height: 50,
-    width: WIDTH - 80,
+    width: WIDTH - 30,
     marginTop: 20,
     backgroundColor: "#FfFfFF",
     borderRadius: 24,
