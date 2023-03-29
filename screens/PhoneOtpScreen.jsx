@@ -7,7 +7,7 @@ import {
 } from "react-native-confirmation-code-field";
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { ModalView } from "../components/SimpleModal";
+import { ModalView } from "../components/ModalViews/SimpleModal";
 // import { BlurView } from "@react-native-community/blur";
 
 interface PhoneOtpScreenProps {}

@@ -7,6 +7,7 @@ import {
 } from "react-native-confirmation-code-field";
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
+import EmailConfirmationPopUP from "../components/ModalViews/EmailConfirmationPopUP";
 
 interface OtpScreenProps {}
 
@@ -29,10 +30,19 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
 
   const handleOtpSubmit = () => {
     if (correctOTP.includes(otp)) {
+      setShowModal(true);
       navigation.navigate("AddPhone");
     } else {
       alert("Otp does not match");
     }
+    setModalVisible(true);
+  };
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleCloseModal = () => {
+    setModalVisible(false);
   };
 
   const startResendOtpTimer = (start = Boolean) => {
@@ -50,7 +60,7 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
     }
   };
 
-                                                   //fix timeout that happens when the screen launches//
+  //fix timeout that happens when the screen launches//
   useEffect(() => {
     startResendOtpTimer(false);
     return () => {
@@ -155,6 +165,16 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
       </View>
 
       <View className="pb-4 mx-8">
+        <View>
+          {showModal && (
+            <EmailConfirmationPopUP
+              navigation={navigation}
+              visible={modalVisible}
+              onClose={handleCloseModal}
+            />
+          )}
+        </View>
+
         <TouchableOpacity
           className="bg-[#60D19A]  p-3 rounded-full items-center justify-center"
           onPress={handleOtpSubmit}

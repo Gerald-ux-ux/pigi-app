@@ -17,7 +17,7 @@ export const Bell = () => {
   };
 
   return (
-    <View className="absolute right-0">
+    <View className="absolute right-0 ">
       <TouchableOpacity onPress={handleNotificationPress}>
         <BellIcon size={30} color="#000000" />
         {hasNotifications && (

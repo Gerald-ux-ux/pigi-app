@@ -15,7 +15,7 @@ import ToggleSwitch from "toggle-switch-react-native";
 import NavBank from "../components/NavBank";
 import Bell from "../components/Bell";
 import Toggle from "../components/Toggle";
-import AccountAddModal from "../components/AccountAddModal";
+import AccountAddModal from "../components/ModalViews/AccountAddModal";
 
 const AddBankScreen = () => {
   const navigation = useNavigation();
@@ -105,7 +105,9 @@ const AddBankScreen = () => {
             className="bg-[#60D19A] p-3 mx-8 rounded-full items-center justify-center"
             onPress={handlePress}
           >
-            <Text className="text-[#F2FAFF] text-lg text-center">Add Card</Text>
+            <Text className="text-[#F2FAFF] text-lg text-center">
+              Link Bank
+            </Text>
           </TouchableOpacity>
         </View>
       </View>

@@ -16,11 +16,23 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import SelectDropdown from "react-native-select-dropdown";
 import ToggleSwitch from "toggle-switch-react-native";
+import AccountAddModal from "../components/ModalViews/AccountAddModal";
 
 const AddCardScreen = () => {
   const [isSelected, setSelected] = useState();
 
-  const handlePress = () => [navigation.navigate("Mpesa")];
+    const [modalVisible, setModalVisible] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
+    const handleCloseModal = () => {
+      setModalVisible(false);
+    };
+
+    const handlePress = () => {
+      setShowModal(true);
+      setModalVisible(true);
+      // [navigation.navigate("Home")]
+    };
 
   const navigation = useNavigation();
   return (
@@ -70,24 +82,24 @@ const AddCardScreen = () => {
         </View>
         <View className="flex-row mx-4 py-2 ">
           <TextInput
-            className="bg-[#F5F7FA]  p-4 rounded-3xl"
-            textAlign="right"
+            className="bg-[#F5F7FA]  w-20 p-4 rounded-3xl"
+            textAlign="left"
             keyboardType="numeric"
             placeholder="12 "
             maxLength={2}
             returnKeyType="done"
           />
           <TextInput
-            className="bg-[#F5F7FA] mx-16 p-4 rounded-3xl"
-            textAlign="right"
+            className="bg-[#F5F7FA] mx-6 w-28 p-4 rounded-3xl"
+            textAlign="left"
             keyboardType="numeric"
             placeholder="2023 "
             maxLength={4}
             returnKeyType="done"
           />
           <TextInput
-            className="bg-[#F5F7FA]  p-4 rounded-3xl"
-            textAlign="right"
+            className="bg-[#F5F7FA] w-28 p-4 rounded-3xl"
+            textAlign="left"
             keyboardType="numeric"
             maxLength={3}
             placeholder="123 "
@@ -117,6 +129,15 @@ const AddCardScreen = () => {
           </Text>
         </View>
         <View className="pb-6">
+          <View>
+            {showModal && (
+              <AccountAddModal
+                visible={modalVisible}
+                onClose={handleCloseModal}
+              />
+            )}
+          </View>
+
           <TouchableOpacity
             className="bg-[#60D19A] p-3 mx-8 rounded-full items-center justify-center"
             onPress={handlePress}

@@ -15,12 +15,25 @@ import { useNavigation } from "@react-navigation/native";
 
 import ToggleSwitch from "toggle-switch-react-native";
 import Toggle from "../components/Toggle";
+import AccountAddModal from "../components/ModalViews/AccountAddModal";
 const AddMpesaScreen = () => {
   const [isSelected, setSelected] = useState();
 
-  const handlePress = () => [navigation.navigate("Bank")];
 
   const navigation = useNavigation();
+
+      const [modalVisible, setModalVisible] = useState(false);
+      const [showModal, setShowModal] = useState(false);
+
+      const handleCloseModal = () => {
+        setModalVisible(false);
+      };
+
+      const handlePress = () => {
+        setShowModal(true);
+        setModalVisible(true);
+        // [navigation.navigate("Home")]
+      };
 
   const [phoneNumber, setPhoneNumber] = useState("");
   const handlePhoneNumberChange = (text) => {
@@ -100,6 +113,15 @@ const AddMpesaScreen = () => {
           </Text>
         </View>
         <View className="pb-6">
+          <View>
+            {showModal && (
+              <AccountAddModal
+                visible={modalVisible}
+                onClose={handleCloseModal}
+              />
+            )}
+          </View>
+
           <TouchableOpacity
             className="bg-[#60D19A] p-3 mx-8 rounded-full items-center justify-center"
             onPress={handlePress}

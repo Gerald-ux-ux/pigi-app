@@ -17,6 +17,7 @@ import AddMpesaScreen from "./screens/AddMpesaScreen";
 import AddBankScreen from "./screens/AddBankScreen";
 import WithdrawalAccountScreen from "./screens/WithdrawalAccountScreen";
 import WithdrawalSummaryScreen from "./screens/WithdrawalSummaryScreen";
+import InvestmentSummaryScreen from "./screens/InvestmentSummaryScreen";
 
 
 export default function App() {
@@ -103,6 +104,11 @@ export default function App() {
         <Stack.Screen
           name="WithdrawalSummary"
           component={WithdrawalSummaryScreen}
+          options={{ presentation: "fullScreenModal", headerShown: false }}
+        />
+        <Stack.Screen
+          name="InvestmentSummary"
+          component={InvestmentSummaryScreen}
           options={{ presentation: "fullScreenModal", headerShown: false }}
         />
       </Stack.Navigator>

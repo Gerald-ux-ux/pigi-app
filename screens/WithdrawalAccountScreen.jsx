@@ -17,7 +17,7 @@ import { LinearGradient } from "expo-linear-gradient";
 const WithdrawalAccountScreen = () => {
   const navigation = useNavigation();
 
-    const handlePress = () => [navigation.navigate("WithdrawalSummary")];
+    const handlePress = () => [navigation.navigate("Card")];
 
   return (
     <SafeAreaView className="flex-1 pt-8 ">
@@ -34,39 +34,40 @@ const WithdrawalAccountScreen = () => {
       </View>
       <View className="bg-white flex-1 pt-4 rounded-t-3xl ">
         <Text className="text-center text-[#333333] font-bold text-sm pb-4">
-          Add bank account
+          Select payment method
         </Text>
         {/* ============= NavBank  section =========== */}
-        <NavCard />
+        <NavCard className="flex-1" />
         {/* ============= Add card section =========== */}
         <View className="flex-1">
-          <LinearGradient
-            colors={["#85A0DA", "#6DD0D7", "#47B2FF"]}
-            className="h-40 w-100 mx-4 my-2 rounded-3xl"
-          >
-            <View className="">
-              <View className="flex-row items-center">
-                <Text className="font-bold text-[#F2F2F2] absolute left-6 top-6 text-base">
-                  Card 1
-                </Text>
-                <View className="bg-[#EB476F] h-6 w-6 absolute right-8 top-6 rounded-full"></View>
-                <View className="bg-[#F5C042] h-6 w-6 absolute right-4 top-6 rounded-full"></View>
-              </View>
+       
+            <LinearGradient
+              colors={["#85A0DA", "#6DD0D7", "#47B2FF"]}
+              className="h-40 w-100 mx-4 my-2 rounded-3xl"
+            >
+              <View className="">
+                <View className="flex-row items-center">
+                  <Text className="font-bold text-[#F2F2F2] absolute left-6 top-6 text-base">
+                    Card 1
+                  </Text>
+                  <View className="bg-[#EB476F] h-6 w-6 absolute right-8 top-6 rounded-full"></View>
+                  <View className="bg-[#F5C042] h-6 w-6 absolute right-4 top-6 rounded-full"></View>
+                </View>
 
-              <Text className="text-[#F2F2F2] text-base absolute left-6 top-16 ">
-                John Fisayo
-              </Text>
-              <View className="flex-row mx-6 absolute top-28 items-center">
-                <Text className="text-[#F2F2F2] text-base font-bold ">
-                  2134
+                <Text className="text-[#F2F2F2] text-base absolute left-6 top-16 ">
+                  John Fisayo
                 </Text>
-                <Text className="text-[#F2F2F2] absolute text-base font-bold left-28">
-                  12/24
-                </Text>
+                <View className="flex-row mx-6 absolute top-28 items-center">
+                  <Text className="text-[#F2F2F2] text-base font-bold ">
+                    2134
+                  </Text>
+                  <Text className="text-[#F2F2F2] absolute text-base font-bold left-28">
+                    12/24
+                  </Text>
+                </View>
               </View>
-            </View>
-          </LinearGradient>
-
+            </LinearGradient>
+ 
           {/* ============= Add card section =========== */}
 
           <LinearGradient
@@ -103,7 +104,7 @@ const WithdrawalAccountScreen = () => {
             onPress={handlePress}
           >
             <Text className="text-[#F2FAFF] text-lg text-center">
-              + Add payment method
+              + Add Card
             </Text>
           </TouchableOpacity>
         </View>

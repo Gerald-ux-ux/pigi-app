@@ -14,6 +14,7 @@ import { ArrowUpIcon } from "react-native-heroicons/solid";
 import { PlusIcon } from "react-native-heroicons/solid";
 import { Footer } from "../components/Footer";
 import { Bell } from "../components/Bell";
+import Graphs from "../components/Graphs";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -26,12 +27,14 @@ const HomeScreen = () => {
     <>
       <SafeAreaView className=" flex-1 pt-8">
         {/* ============= User IMG =========== */}
-        <View className="flex-row mx-4 items-center pb-2">
-          <Image
-            source={require("../assets/Rectangle1.png")}
-            style={{ width: 40, height: 40 }}
-          />
 
+        <View className="flex-row mx-4 items-center pb-2">
+          <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+            <Image
+              source={require("../assets/Rectangle1.png")}
+              style={{ width: 40, height: 40 }}
+            />
+          </TouchableOpacity>
           <Text className="text-[#242424] items-center justify-center  text-base  mx-2">
             Good <Time />!
           </Text>
@@ -59,13 +62,16 @@ const HomeScreen = () => {
             </View>
           </View>
           <View className="pt-8 justify-center">
-            <TouchableOpacity className="bg-[#60D19A] p-3 mx-28 rounded-full items-center justify-center">
+            <TouchableOpacity
+              className="bg-[#60D19A] p-3 mx-28 rounded-full items-center justify-center"
+              onPress={() => navigation.navigate("Amount")}
+            >
               <Text className="text-[#252642] text-lg text-center">Invest</Text>
             </TouchableOpacity>
           </View>
 
           {/* ============= Insight Section =========== */}
-          <View className="bg-white rounded-2xl p-14 mx-4 my-6">
+          <View className="bg-white rounded-2xl p-14 mx-4 my-8">
             <View className="flex-row ">
               <View className=" absolute bottom-0 items-center justify-center -mx-12 my-8 ">
                 <Text className="font-medium text-xs">Insights</Text>
@@ -80,13 +86,15 @@ const HomeScreen = () => {
                   32%
                 </Text>
               </View>
+              
+            </View>
+            <View className=''> 
+              <Graphs />
             </View>
           </View>
 
           {/* ============= Insight Section *GRAPHS* =========== */}
-          <View>
-            <View></View>
-          </View>
+
           {/* ============= Investment Section =========== */}
 
           <View className="mx-4">
@@ -96,9 +104,7 @@ const HomeScreen = () => {
                 <TouchableOpacity>
                   <View className="flex-row  items-center">
                     <PlusIcon size={15} color="#60D19A" />
-                    <Text className="text-[#60D19A]  text-sm ">
-                      Add
-                    </Text>
+                    <Text className="text-[#60D19A]  text-sm ">Add</Text>
                   </View>
                 </TouchableOpacity>
               </View>

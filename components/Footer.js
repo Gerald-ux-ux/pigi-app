@@ -4,7 +4,7 @@ import { HomeIcon } from "react-native-heroicons/outline";
 import { ArrowsUpDownIcon } from "react-native-heroicons/outline";
 import { UserIcon } from "react-native-heroicons/outline";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { InvestmentPopUp } from "./InvestmentPopUp";
+import { InvestmentPopUp } from "./ModalViews/InvestmentPopUp";
 
 export const Footer = () => {
   const navigation = useNavigation();
