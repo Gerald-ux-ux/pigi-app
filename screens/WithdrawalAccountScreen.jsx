@@ -17,6 +17,11 @@ import { LinearGradient } from "expo-linear-gradient";
 const WithdrawalAccountScreen = () => {
   const navigation = useNavigation();
 
+
+  const [selected, setSelected] = useState("");
+
+  
+
     const handlePress = () => [navigation.navigate("Card")];
 
   return (

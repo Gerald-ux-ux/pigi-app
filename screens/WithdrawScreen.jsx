@@ -29,20 +29,18 @@ const WithdrawScreen = () => {
 
   return (
     <SafeAreaView className="flex-1 pt-8">
-      {/* ============= Withdrawal Amount =========== */}
-      <View className="mx-4 flex-row  pb-12 ">
-        <TouchableOpacity
-          className="bg-white rounded-full p-1"
-          onPress={() => navigation.goBack()}
-        >
-          <ChevronLeftIcon size={22} color="#000000" />
-        </TouchableOpacity>
-        <View className="items-center justify-center mx-16 ">
-          <Text className="text-center text-[#4F4F4F] text-x font-bold">
-            Withdrawal Amount
-          </Text>
+      {/* ============= Correct Header section =========== */}
+      <View className="pb-12">
+        <View className="flex-row justify-center items-center mx-6 ">
+          <TouchableOpacity
+            className="bg-white rounded-full p-1 absolute left-0"
+            onPress={() => navigation.goBack()}
+          >
+            <ChevronLeftIcon size={22} color="#000000" />
+          </TouchableOpacity>
+          <Text className="font-bold text-base">Withdrawal Amount</Text>
+          <Bell />
         </View>
-        <Bell />
       </View>
 
       <View className="bg-white flex-1 pt-4 rounded-t-3xl ">
@@ -97,19 +95,20 @@ const WithdrawScreen = () => {
           </Text>
         </View>
 
-        <View className="bg-[#F5F7FA] my-6 mx-4 rounded-3xl p-2 ">
-          <Text className="text-[#323232] font-medium absolute top-6 left-4">
-            Checking
-          </Text>
-          <TextInput
-            placeholder="32134"
-            textAlign="right"
-            keyboardType="numeric"
-            className=" rounded-3xl p-4  "
-            returnKeyType="done"
-          />
+        <View className='flex-1'>
+          <View className="bg-[#F5F7FA] my-6 mx-4 rounded-3xl p-2 ">
+            <Text className="text-[#323232] font-medium absolute top-6 left-4">
+              Checking
+            </Text>
+            <TextInput
+              placeholder="32134"
+              textAlign="right"
+              keyboardType="numeric"
+              className=" rounded-3xl p-4  "
+              returnKeyType="done"
+            />
+          </View>
         </View>
-
         <View className="pb-6">
           <TouchableOpacity
             className="bg-[#60D19A] p-3 mx-8 rounded-full items-center justify-center"

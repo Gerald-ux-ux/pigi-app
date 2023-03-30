@@ -14,7 +14,7 @@ import { ArrowUpIcon } from "react-native-heroicons/solid";
 import { PlusIcon } from "react-native-heroicons/solid";
 import { Footer } from "../components/Footer";
 import { Bell } from "../components/Bell";
-import Graphs from "../components/Graphs";
+import { InsightGraph } from "../components/Graphs/InsightGraph";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -71,12 +71,12 @@ const HomeScreen = () => {
           </View>
 
           {/* ============= Insight Section =========== */}
-          <View className="bg-white rounded-2xl p-14 mx-4 my-8">
+          <View className="bg-white rounded-2xl p-16 mx-4 my-8">
             <View className="flex-row ">
-              <View className=" absolute bottom-0 items-center justify-center -mx-12 my-8 ">
+              <View className=" absolute bottom-0 items-center justify-center -mx-12 my-10 ">
                 <Text className="font-medium text-xs">Insights</Text>
               </View>
-              <View className="absolute right-0 bottom-0 items-center justify-center -mx-12 my-8">
+              <View className="absolute right-0 bottom-0 items-center justify-center -mx-12 my-10">
                 <Text className="justify-center items-center text-xs font-medium text-[#000000]">
                   <ArrowUpIcon
                     size={12}
@@ -86,10 +86,9 @@ const HomeScreen = () => {
                   32%
                 </Text>
               </View>
-              
             </View>
-            <View className=''> 
-              <Graphs />
+            <View className="">
+              <InsightGraph />
             </View>
           </View>
 
