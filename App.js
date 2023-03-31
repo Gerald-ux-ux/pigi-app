@@ -1,13 +1,12 @@
-
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import LandingScreen from './screens/LandingScreen';
-import CreateAccountScreen from './screens/CreateAccountScreen';
-import LoginScreen from './screens/LoginScreen';
-import OtpScreen from './screens/OtpScreen';
-import AddPhoneScreen from './screens/AddPhoneScreen';
-import PhoneOtpScreen from './screens/PhoneOtpScreen';
-import HomeScreen from './screens/HomeScreen';
+import LandingScreen from "./screens/LandingScreen";
+import CreateAccountScreen from "./screens/CreateAccountScreen";
+import LoginScreen from "./screens/LoginScreen";
+import OtpScreen from "./screens/OtpScreen";
+import AddPhoneScreen from "./screens/AddPhoneScreen";
+import PhoneOtpScreen from "./screens/PhoneOtpScreen";
+import HomeScreen from "./screens/HomeScreen";
 import InvestmentsScreen from "./screens/InvestmentsScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import AmountScreen from "./screens/AmountScreen";
@@ -18,10 +17,9 @@ import AddBankScreen from "./screens/AddBankScreen";
 import WithdrawalAccountScreen from "./screens/WithdrawalAccountScreen";
 import WithdrawalSummaryScreen from "./screens/WithdrawalSummaryScreen";
 import InvestmentSummaryScreen from "./screens/InvestmentSummaryScreen";
-
+import PaymentMethodPopUp from "./components/ModalViews/PaymentMethodPopUp";
 
 export default function App() {
-
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
@@ -111,9 +109,8 @@ export default function App() {
           component={InvestmentSummaryScreen}
           options={{ presentation: "fullScreenModal", headerShown: false }}
         />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-

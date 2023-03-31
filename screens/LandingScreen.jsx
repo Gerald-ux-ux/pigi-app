@@ -5,11 +5,7 @@ import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Fonts } from "../components/Font";
 
-  const Regular = Fonts; 
-
 const LandingScreen = () => {
-
-
   const navigation = useNavigation();
 
   const handlePress = () => [navigation.navigate("CreateAccount")];
@@ -28,10 +24,7 @@ const LandingScreen = () => {
         </View>
       </View>
 
-      <Text
-        className="font-bold text-4xl pb-10 pl-4 pt-3 justify-start"
-        
-      >
+      <Text className="font-bold text-4xl pb-10 pl-4 pt-3 justify-start">
         Investment made easy
       </Text>
 
@@ -41,8 +34,10 @@ const LandingScreen = () => {
           onPress={handlePress}
         >
           <Text
-            style={{ fontFamily: "SpaceGrotesk-Regular" }}
-            className="text-[#252642] text-lg text-center"
+            style={[
+              Fonts.bold,
+              { color: "#252642", fontSize: 20, textAlign: "center" },
+            ]}
           >
             Get started
           </Text>

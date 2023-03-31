@@ -31,7 +31,7 @@ export const PaymentMethodPopUp = ({ visible, onClose }) => {
             <TouchableOpacity
               className="pb-4"
               onPress={() => {
-                props.navigation.navigate("Card"); // use the navigation prop to navigate
+                navigation.navigate("Card");
               }}
             >
               <View className="flex-row  items-center">
@@ -48,6 +48,7 @@ export const PaymentMethodPopUp = ({ visible, onClose }) => {
                 </Text>
               </View>
             </TouchableOpacity>
+         
             <TouchableOpacity
               className="pb-4"
               onPress={() => {

@@ -172,7 +172,7 @@ const ProfileScreen = () => {
           </View>
         </View>
 
-        <Footer />
+        <Footer  />
       </SafeAreaView>
     </>
   );

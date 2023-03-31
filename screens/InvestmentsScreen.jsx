@@ -20,20 +20,18 @@ const InvestmentsScreen = () => {
 
   return (
     <SafeAreaView className="flex-1 pt-8 ">
-      {/* ============= Investment Id =========== */}
-      <View className="mx-4 flex-row pb-2 ">
-        <TouchableOpacity
-          className="bg-white rounded-full p-1"
-          onPress={() => navigation.goBack()}
-        >
-          <ChevronLeftIcon size={22} color="#000000" />
-        </TouchableOpacity>
-        <View className="items-center justify-center mx-16 ">
-          <Text className="text-center text-[#4F4F4F] text-x font-medium">
-            Kuza Money Market Fund
-          </Text>
+      {/* ============= Correct Header section =========== */}
+      <View className="pt-1">
+        <View className="flex-row justify-center items-center mx-6 ">
+          <TouchableOpacity
+            className="bg-white rounded-full p-1 absolute left-0"
+            onPress={() => navigation.goBack()}
+          >
+            <ChevronLeftIcon size={22} color="#000000" />
+          </TouchableOpacity>
+          <Text className=" text-xs">Kuza Money Market Fund </Text>
+          <Bell />
         </View>
-        <Bell />
       </View>
       <ScrollView className="">
         <View className="">
