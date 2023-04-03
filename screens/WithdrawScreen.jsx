@@ -89,13 +89,14 @@ const WithdrawScreen = () => {
               <ArrowsUpDownIcon color="#200E32" size={18} />
             </TouchableOpacity>
           </View>
+          {/* ============= Exchange Rates Component fix =========== */}
           <Text className="justify-center text-[#817f7f]">Today’s rate</Text>
           <Text className="justify-center text-[#817f7f] absolute right-4">
             1 USD = 124.55 KES
           </Text>
         </View>
 
-        <View className='flex-1'>
+        <View className="flex-1">
           <View className="bg-[#F5F7FA] my-6 mx-4 rounded-3xl p-2 ">
             <Text className="text-[#323232] font-medium absolute top-6 left-4">
               Checking

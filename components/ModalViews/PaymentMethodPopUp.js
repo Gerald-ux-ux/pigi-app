@@ -26,7 +26,6 @@ export const PaymentMethodPopUp = ({ visible, onClose }) => {
       <TouchableOpacity disabled={true} style={styles.container}>
         <View style={[styles.modal, styles.centered]} className="pt-6">
           <Text className="mx-6 font-medium pb-4">Select an option</Text>
-
           <View className="pt-4">
             <TouchableOpacity
               className="pb-4"
@@ -42,13 +41,12 @@ export const PaymentMethodPopUp = ({ visible, onClose }) => {
                     // style={{ marginBottom: 20 }}
                   />
                 </View>
-
                 <Text className="text-sm font-normal  text-[#2A2D2F]">
                   Add card
                 </Text>
               </View>
             </TouchableOpacity>
-         
+
             <TouchableOpacity
               className="pb-4"
               onPress={() => {
