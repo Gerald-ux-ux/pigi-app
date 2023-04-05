@@ -21,29 +21,30 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
     RESEND_OTP_TIME_LIMIT
   );
 
-  const [correctOTP, setCorrectOTP] = useState("123456");
-  const [otp, setOTP] = useState("");
+const [correctOTP, setCorrectOTP] = useState("123456");
+const [otp, setOTP] = useState("");
+const [showModal, setShowModal] = useState(false);
+const [modalVisible, setModalVisible] = useState(false);
 
-  const handleOtpChange = (text: string) => {
-    setOTP(text);
-  };
+const handleOtpChange = (text: string) => {
+  setOTP(text);
+};
 
-  const handleOtpSubmit = () => {
-    if (correctOTP.includes(otp)) {
-      setShowModal(true);
-      navigation.navigate("AddPhone");
-    } else {
-      alert("Otp does not match");
-    }
+const handleOtpSubmit = () => {
+  if (correctOTP.includes(otp)) {
+    setShowModal(true);
+    navigation.navigate("AddPhone");
     setModalVisible(true);
-  };
+  } else {
+    alert("Otp does not match");
+    setShowModal(false);
+  }
+};
 
-  const [modalVisible, setModalVisible] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+const handleCloseModal = () => {
+  setModalVisible(false);
+};
 
-  const handleCloseModal = () => {
-    setModalVisible(false);
-  };
 
   const startResendOtpTimer = (start = Boolean) => {
     if (resendOtpTimerInterval) {

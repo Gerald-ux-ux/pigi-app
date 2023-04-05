@@ -22,28 +22,7 @@ import ExchangeRates from "../components/ExhangeRates";
 import InvsestmentOptionPopUp from "../components/ModalViews/InvsestmentOptionPopUp";
 
 const AmountScreen = () => {
-
-  //Handling the currency change event
-// const [usd, setUsd] = useState("");
-// const [kes, setKes] = useState("");
-
-// const handleUsdChange = (value) => {
-// setUsd(value);
-// const kesRate = parseFloat(ExchangeRates().usdToKes(value));
-// setKes(kesRate.toFixed(2));
-// };
-
-// const handleKesChange = (value) => {
-//   setKes(value);
-//   const usdRate = parseFloat(ExchangeRates().rates["USD"]);
-//   const usd = (value / usdRate).toFixed(2);
-//   setUsd(usd);
-// };
-  //Handling the currency change event
-
-  const handleIconPress = () => {
-
-  }
+  const handleIconPress = () => {};
 
   const [modalVisible, setModalVisible] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -94,11 +73,8 @@ const AmountScreen = () => {
           />
         </View>
         <View className="flex-row justify-center -my-6">
-          <View className='pt-4'>
-            <TouchableOpacity
-              onPress={handleIconPress}
-              className=""
-            >
+          <View className="pt-4">
+            <TouchableOpacity onPress={handleIconPress} className="">
               <View className="bg-[#343558] rounded-full p-2  mx-4">
                 <ArrowsUpDownIcon color="#fff" size={18} />
               </View>

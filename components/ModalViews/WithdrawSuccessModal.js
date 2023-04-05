@@ -20,14 +20,16 @@ export const WithdrawSuccessModal = ({ visible, onClose }) => {
   
     const navigation = useNavigation();
     const confettiRef = useRef(null);
-    useEffect(() => {
+useEffect(() => {
+  if (confettiRef.current) {
+    confettiRef.current.startConfetti();
+    setTimeout(() => {
       if (confettiRef.current) {
-        confettiRef.current.startConfetti();
-        setTimeout(() => {
-          confettiRef.current.stopConfetti();
-        }, 9000);
+        confettiRef.current.stopConfetti();
       }
-    }, []);
+    }, 9000);
+  }
+}, [confettiRef.current]);
   
   
   return (

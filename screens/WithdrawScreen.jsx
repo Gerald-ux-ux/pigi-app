@@ -24,7 +24,7 @@ const WithdrawScreen = () => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-  [navigation.navigate("WithdrawalAccount")];
+  [navigation.navigate("WithdrawalSummary")];
   }
 
   return (
@@ -95,27 +95,27 @@ const WithdrawScreen = () => {
             1 USD = 124.55 KES
           </Text>
         </View>
-
-        <View className="flex-1">
-          <View className="bg-[#F5F7FA] my-6 mx-4 rounded-3xl p-2 ">
-            <Text className="text-[#323232] font-medium absolute top-6 left-4">
-              Checking
+        <TouchableOpacity
+          className="flex-1"
+          onPress={() => navigation.navigate("MpesaWithdrawal")}
+        >
+          <View className="bg-[#F5F7FA] my-2 mx-4 rounded-3xl p-6 items-start justify-center ">
+            <Text className="text-[#323232] font-medium  ">
+              John’s Mastercard ****2134
             </Text>
-            <TextInput
-              placeholder="32134"
-              textAlign="right"
-              keyboardType="numeric"
-              className=" rounded-3xl p-4  "
-              returnKeyType="done"
-            />
+
+            <View className="absolute right-4">
+              <ChevronDownIcon size={22} color="#000" />
+            </View>
+            {/* ============= Dropdownselect =========== */}
           </View>
-        </View>
+        </TouchableOpacity>
         <View className="pb-6">
           <TouchableOpacity
             className="bg-[#60D19A] p-3 mx-8 rounded-full items-center justify-center"
             onPress={handlePress}
           >
-            <Text className="text-[#F2FAFF] text-lg text-center">Add Card</Text>
+            <Text className="text-[#343558] text-lg text-center">Next</Text>
           </TouchableOpacity>
         </View>
       </View>

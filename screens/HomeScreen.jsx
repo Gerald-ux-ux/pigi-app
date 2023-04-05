@@ -88,7 +88,7 @@ const HomeScreen = () => {
               </View>
             </View>
             <View className="">
-              <InsightGraph />
+              <Text className="text-center font-bold">Graph Section</Text>
             </View>
           </View>
 

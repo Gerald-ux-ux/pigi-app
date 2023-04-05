@@ -18,14 +18,16 @@ const WIDTH = Dimensions.get("window").width;
 export const AccountAddModal = ({ visible, onClose }) => {
   const navigation = useNavigation();
   const confettiRef = useRef(null);
-  useEffect(() => {
-    if (confettiRef.current) {
-      confettiRef.current.startConfetti();
-      setTimeout(() => {
+useEffect(() => {
+  if (confettiRef.current) {
+    confettiRef.current.startConfetti();
+    setTimeout(() => {
+      if (confettiRef.current) {
         confettiRef.current.stopConfetti();
-      }, 9000);
-    }
-  }, []);
+      }
+    }, 9000);
+  }
+}, [confettiRef.current]);
   return (
     <Modal visible={visible} transparent={true} animationType="fade">
       <TouchableOpacity disabled={true} style={styles.container}>

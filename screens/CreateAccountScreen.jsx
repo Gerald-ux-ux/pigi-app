@@ -5,7 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-
+import { KeyboardAvoidingView, Platform } from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import Checkbox from "expo-checkbox";
@@ -28,7 +28,11 @@ const CreateAccountScreen = () => {
         </Text>
       </View>
       {/* ============= Input Fields =========== */}
-      <View className="flex-1">
+
+          <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={{ flex: 1 }}
+        >
         <View className="px-4 pb-4">
           <TextInput
             className=" bg-[#F5F7FA] p-6 text-start rounded-2xl"
@@ -47,12 +51,14 @@ const CreateAccountScreen = () => {
             placeholder="Password"
           />
         </View>
-        <View className="px-4 pt-4">
-          <TextInput
-            className=" bg-[#F5F7FA] p-6 text-start rounded-2xl"
-            placeholder="Retype Password"
-          />
-        </View>
+
+          <View className="px-4 pt-4">
+            <TextInput
+              className=" bg-[#F5F7FA] p-6 text-start rounded-2xl"
+              placeholder="Retype Password"
+            />
+          </View>
+  
         <View className="flex-row mx-6 pt-4 flex-1">
           <Checkbox
             value={isSelected}
@@ -63,7 +69,8 @@ const CreateAccountScreen = () => {
             By signing up, you agree to the Terms of Service and Privacy Policy
           </Text>
         </View>
-      </View>
+       </KeyboardAvoidingView>
+
 
       {/* ============= Footer =========== */}
 

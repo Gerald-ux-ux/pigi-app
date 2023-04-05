@@ -33,7 +33,7 @@ const InvestmentsScreen = () => {
           <Bell />
         </View>
       </View>
-      <ScrollView className="">
+
         <View className="">
           <View className="flex-row">
             <View className="flex-1 pt-4 mx-4 ">
@@ -117,7 +117,7 @@ const InvestmentsScreen = () => {
             </TouchableOpacity>
           </View>
         </View>
-
+      <ScrollView className="">
         <View className="flex-row items-center mx-4 pt-4 ">
           <View className="bg-[#D9D9D9] rounded-full p-2">
             <ArrowUpIcon color="#109434" size={16} />
@@ -205,8 +205,9 @@ const InvestmentsScreen = () => {
               </Text>
             </View>
           </View>
-        </View>
+      </View>
       </ScrollView>
+ 
     </SafeAreaView>
   );
 };

@@ -18,6 +18,7 @@ import WithdrawalAccountScreen from "./screens/WithdrawalAccountScreen";
 import WithdrawalSummaryScreen from "./screens/WithdrawalSummaryScreen";
 import InvestmentSummaryScreen from "./screens/InvestmentSummaryScreen";
 import PaymentMethodPopUp from "./components/ModalViews/PaymentMethodPopUp";
+import MpesaWithdrawalScreen from "./screens/MpesaWithdrawalScreen";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -109,7 +110,11 @@ export default function App() {
           component={InvestmentSummaryScreen}
           options={{ presentation: "fullScreenModal", headerShown: false }}
         />
-        
+        <Stack.Screen
+          name="MpesaWithdrawal"
+          component={MpesaWithdrawalScreen}
+          options={{ presentation: "fullScreenModal", headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

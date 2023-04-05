@@ -8,6 +8,7 @@ import {
   ScrollView,
   Image,
 } from "react-native";
+
 import React, { useState } from "react";
 import { ChevronLeftIcon } from "react-native-heroicons/outline";
 import { useNavigation } from "@react-navigation/native";
@@ -15,32 +16,31 @@ import ToggleSwitch from "toggle-switch-react-native";
 import NavBank from "../components/NavBank";
 import Bell from "../components/Bell";
 import Toggle from "../components/Toggle";
+import { KeyboardAvoidingView, Platform } from "react-native";
 import AccountAddModal from "../components/ModalViews/AccountAddModal";
 
 const AddBankScreen = () => {
   const navigation = useNavigation();
-  const [isSelected, setSelected] = useState();
+  const [selected, setSelected] = useState("");
 
-    const [modalVisible, setModalVisible] = useState(false);
-    const [showModal, setShowModal] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-    const handleCloseModal = () => {
-      setModalVisible(false);
-    };
-
+  const handleCloseModal = () => {
+    setModalVisible(false);
+  };
 
   const handlePress = () => {
-       setShowModal(true);
-       setModalVisible(true);
+    setShowModal(true);
+    setModalVisible(true);
     // [navigation.navigate("Home")]
   };
-  
-
 
   return (
+     <>
     <SafeAreaView className="flex-1 pt-8 ">
       {/* ============= Header section =========== */}
-      <View className="mx-4 flex-row  pb-12 ">
+      <View className="mx-4 flex-row  pb-8 ">
         <TouchableOpacity
           className="bg-white rounded-full p-1"
           onPress={() => navigation.goBack()}
@@ -56,62 +56,138 @@ const AddBankScreen = () => {
           Add bank account
         </Text>
         {/* ============= NavBank  section =========== */}
-        <NavBank />
+        <NavBank
+          selected={selected}
+          setSelected={setSelected}
+          className="flex-1"
+        />
 
-        <View className="py-6 mx-4 ">
-          <View className="pb-4">
-            <Text className="text-[#333333] font-medium text-sm pb-2">
-              Account holder name
-            </Text>
-            <TextInput
-              className="bg-[#F5F7FA]  p-4 rounded-3xl"
-              placeholder="Enter the account name"
-            />
-          </View>
-          <View className="">
-            <Text className="text-[#333333] font-medium text-sm pb-2">
-              Bank Name
-            </Text>
-            <TextInput
-              className="bg-[#F5F7FA]  p-4 rounded-3xl"
-              placeholder="Stanbic Bank"
-            />
-          </View>
-          <View className="pt-4">
-            <Text className="text-[#333333] font-medium text-sm pb-2">
-              Bank Account Number
-            </Text>
-            <TextInput
-              className="bg-[#F5F7FA]  p-4 rounded-3xl"
-              placeholder="0000000000"
-            />
-          </View>
-        </View>
+        {selected === "Kenyan" ? (
+          <>
+            <View className="py-3 mx-4 ">
+              <View className="pb-4">
+                <Text className="text-[#333333] font-medium text-sm pb-2">
+                  Account holder name
+                </Text>
+                <TextInput
+                  className="bg-[#F5F7FA]  p-4 rounded-3xl"
+                  placeholder="Enter the account name"
+                />
+              </View>
+              <View className="">
+                <Text className="text-[#333333] font-medium text-sm pb-2">
+                  Bank Name
+                </Text>
+                <TextInput
+                  className="bg-[#F5F7FA]  p-4 rounded-3xl"
+                  placeholder="Stanbic Bank"
+                />
+              </View>
+              <View className="pt-4">
+                <Text className="text-[#333333] font-medium text-sm pb-2">
+                  Bank Account Number
+                </Text>
+                <TextInput
+                  className="bg-[#F5F7FA]  p-4 rounded-3xl"
+                  placeholder="0000000000"
+                />
+              </View>
+            </View>
 
-        {/* ============= Toggle section =========== */}
+            <Toggle />
 
-        <Toggle />
+            <View className="pb-6">
+              <View>
+                {showModal && (
+                  <AccountAddModal
+                    visible={modalVisible}
+                    onClose={handleCloseModal}
+                  />
+                )}
+              </View>
+              <TouchableOpacity
+                className="bg-[#60D19A] p-3 mx-8 rounded-full items-center justify-center"
+                onPress={handlePress}
+              >
+                <Text className="text-[#F2FAFF] text-lg text-center">
+                  Link Bank
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </>
+        ) : (
+          <>
+            <ScrollView>
+              <View className="py-3 mx-4 ">
+                <View className="pb-4">
+                  <Text className="text-[#333333] font-medium text-sm pb-2">
+                    Account holder name
+                  </Text>
+                  <TextInput
+                    className="bg-[#F5F7FA]  p-4 rounded-3xl"
+                    placeholder="Enter the account name"
+                  />
+                </View>
+                <View className="">
+                  <Text className="text-[#333333] font-medium text-sm pb-2">
+                    Bank Name
+                  </Text>
+                  <TextInput
+                    className="bg-[#F5F7FA]  p-4 rounded-3xl"
+                    placeholder="Goldman Sachs"
+                  />
+                </View>
+                <View className="pt-4">
+                  <Text className="text-[#333333] font-medium text-sm pb-2">
+                    Account Number
+                  </Text>
+                  <TextInput
+                    className="bg-[#F5F7FA]  p-4 rounded-3xl"
+                    placeholder="0000000000"
+                  />
+                </View>
+                <KeyboardAvoidingView
+                  behavior={Platform.OS === "ios" ? "padding" : "height"}
+                  style={{ flex: 1 }}
+                >
+                  <View className="pt-4">
+                    <Text className="text-[#333333] font-medium text-sm pb-2">
+                      Routing Number
+                    </Text>
+                    <TextInput
+                      className="bg-[#F5F7FA]  p-4 rounded-3xl"
+                      placeholder="0000000000"
+                    />
+                  </View>
+                </KeyboardAvoidingView>
+              </View>
 
-        <View className="pb-6">
-          <View>
-            {showModal && (
-              <AccountAddModal
-                visible={modalVisible}
-                onClose={handleCloseModal}
-              />
-            )}
-          </View>
-          <TouchableOpacity
-            className="bg-[#60D19A] p-3 mx-8 rounded-full items-center justify-center"
-            onPress={handlePress}
-          >
-            <Text className="text-[#F2FAFF] text-lg text-center">
-              Link Bank
-            </Text>
-          </TouchableOpacity>
-        </View>
+              <Toggle />
+            </ScrollView>
+
+            <View className="pb-6">
+              <View>
+                {showModal && (
+                  <AccountAddModal
+                    visible={modalVisible}
+                    onClose={handleCloseModal}
+                  />
+                )}
+              </View>
+              <TouchableOpacity
+                className="bg-[#60D19A] p-3 mx-8 rounded-full items-center justify-center"
+                onPress={handlePress}
+              >
+                <Text className="text-[#F2FAFF] text-lg text-center">
+                  Link Bank
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </>
+        )}
       </View>
     </SafeAreaView>
+   </>
   );
 };
 
