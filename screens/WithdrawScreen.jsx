@@ -18,19 +18,20 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet } from "react-native";
 import Bell from "../components/Bell";
 import { useNavigation } from "@react-navigation/native";
+import ExchangeRates from "../components/ExhangeRates";
 
 const WithdrawScreen = () => {
   const countries = ["Egypt", "Canada", "Australia", "Ireland"];
   const navigation = useNavigation();
 
   const handlePress = () => {
-  [navigation.navigate("WithdrawalSummary")];
-  }
+    [navigation.navigate("WithdrawalSummary")];
+  };
 
   return (
     <SafeAreaView className="flex-1 pt-8">
       {/* ============= Correct Header section =========== */}
-      <View className="pb-12">
+      <View className="pb-6">
         <View className="flex-row justify-center items-center mx-6 ">
           <TouchableOpacity
             className="bg-white rounded-full p-1 absolute left-0"
@@ -83,18 +84,7 @@ const WithdrawScreen = () => {
           />
         </View>
 
-        <View className="flex-row items-center">
-          <View className="bg-[#F5F7FA] rounded-full p-2 mx-4">
-            <TouchableOpacity>
-              <ArrowsUpDownIcon color="#200E32" size={18} />
-            </TouchableOpacity>
-          </View>
-          {/* ============= Exchange Rates Component fix =========== */}
-          <Text className="justify-center text-[#817f7f]">Today’s rate</Text>
-          <Text className="justify-center text-[#817f7f] absolute right-4">
-            1 USD = 124.55 KES
-          </Text>
-        </View>
+        <ExchangeRates />
         <TouchableOpacity
           className="flex-1"
           onPress={() => navigation.navigate("MpesaWithdrawal")}
@@ -110,7 +100,7 @@ const WithdrawScreen = () => {
             {/* ============= Dropdownselect =========== */}
           </View>
         </TouchableOpacity>
-        <View className="pb-6">
+        <View className="pb-3">
           <TouchableOpacity
             className="bg-[#60D19A] p-3 mx-8 rounded-full items-center justify-center"
             onPress={handlePress}

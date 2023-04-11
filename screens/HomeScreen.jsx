@@ -35,9 +35,12 @@ const HomeScreen = () => {
               style={{ width: 40, height: 40 }}
             />
           </TouchableOpacity>
-          <Text className="text-[#242424] items-center justify-center  text-base  mx-2">
-            Good <Time />!
-          </Text>
+          <View className='justify-center items-center'>
+            <Text className="text-[#242424] items-center text-base  mx-2">
+              Good <Time />!
+            </Text>
+          </View>
+
           <Bell />
         </View>
 
@@ -151,7 +154,7 @@ const HomeScreen = () => {
                 </View>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handlePress}>
               <View className="my-2">
                 <View className="flex-row bg-white p-2 rounded-lg">
                   <View className="flex-1   ">

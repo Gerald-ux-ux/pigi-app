@@ -19,6 +19,7 @@ import WithdrawalSummaryScreen from "./screens/WithdrawalSummaryScreen";
 import InvestmentSummaryScreen from "./screens/InvestmentSummaryScreen";
 import PaymentMethodPopUp from "./components/ModalViews/PaymentMethodPopUp";
 import MpesaWithdrawalScreen from "./screens/MpesaWithdrawalScreen";
+import EmailLoging from "./screens/EmailLoging";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -113,6 +114,11 @@ export default function App() {
         <Stack.Screen
           name="MpesaWithdrawal"
           component={MpesaWithdrawalScreen}
+          options={{ presentation: "fullScreenModal", headerShown: false }}
+        />
+        <Stack.Screen
+          name="Email"
+          component={EmailLoging}
           options={{ presentation: "fullScreenModal", headerShown: false }}
         />
       </Stack.Navigator>

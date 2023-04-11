@@ -11,7 +11,7 @@ import { ArrowUpIcon, ArrowDownIcon } from "react-native-heroicons/solid";
 
 import { useNavigation } from "@react-navigation/native";
 
-const HEIGHT_MODAL = 200;
+const HEIGHT_MODAL = 140;
 const WIDTH = Dimensions.get("window").width;
 
 export const InvestmentPopUp = ({ visible, onClose }) => {
@@ -21,13 +21,13 @@ export const InvestmentPopUp = ({ visible, onClose }) => {
     <Modal visible={visible} transparent={true} animationType="fade">
       <TouchableOpacity disabled={true} style={styles.container}>
         <View style={[styles.modal, styles.centered]}>
-          <Text className="mx-6 py-5 font-medium">Select an option</Text>
+          <Text className="mx-6 pt-4  font-medium">Select an option</Text>
 
           <View className="pt-1">
             <TouchableOpacity
               className=""
               onPress={() => {
-                navigation.navigate("Home");
+                navigation.navigate("Amount");
               }}
             >
               <View className="flex-row my-2 items-center">
@@ -46,7 +46,7 @@ export const InvestmentPopUp = ({ visible, onClose }) => {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate("Home");
+                navigation.navigate("Withdraw");
               }}
             >
               <View className="flex-row my-2 items-center">

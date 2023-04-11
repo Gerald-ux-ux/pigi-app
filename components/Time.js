@@ -18,8 +18,8 @@ export const Time  = () => {
   }, []);
 
     return (
-      <View className='items-center justify-center'>
-        <Text className="text-[#242424] text-base py-1  ">{greeting}</Text>
+      <View className='justify-center items-center'>
+        <Text className="text-[#242424] text-base  pt-1 ">{greeting}</Text>
       </View>
     );
 };

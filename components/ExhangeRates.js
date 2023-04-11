@@ -7,6 +7,8 @@ const ExchangeRates = () => {
   const [fromCurrency, setFromCurrency] = useState("USD");
   const [toCurrency, setToCurrency] = useState("KES");
 
+  
+
   useEffect(() => {
     const baseUrl =
       "https://v6.exchangerate-api.com/v6/0a4337df7f1fed713f715fb4/latest/USD";

@@ -55,7 +55,9 @@ useEffect(() => {
 
         <TouchableOpacity
           onPress={() => {
+
             onClose();
+                 navigation.navigate("Home");
           }}
           style={[styles.buttonContainer, styles.centered]}
         >

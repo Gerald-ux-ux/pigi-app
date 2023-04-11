@@ -32,8 +32,8 @@ export const Footer = () => {
 
   return (
     <View className="bg-white p-2 ">
-      <View className="flex-row ">
-        <View className="items-center mx-16 ">
+      <View className="flex-row  justify-between mx-12">
+        <View className="items-center ">
           <TouchableOpacity
             className="justify-center items-center"
             onPress={() => navigation.navigate("Home")}
@@ -67,7 +67,7 @@ export const Footer = () => {
             <ArrowsUpDownIcon color="#FFFF" />
           </TouchableOpacity>
         </View>
-        <View className="mx-16">
+        <View className="">
           <TouchableOpacity
             className="justify-center items-center"
             onPress={() => navigation.navigate("Profile")}

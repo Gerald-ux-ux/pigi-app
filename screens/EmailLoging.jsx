@@ -7,14 +7,14 @@ import {
 } from "react-native-confirmation-code-field";
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import EmailConfirmationPopUP from "../components/ModalViews/EmailConfirmationPopUP";
+import LoginModal from "../components/ModalViews/LoginModal";
 
 interface OtpScreenProps {}
 
 const CELL_COUNT = 6;
 const RESEND_OTP_TIME_LIMIT = 30;
 
-const OtpScreen: React.FC<OtpScreenProps> = () => {
+const EmailLoging: React.FC<OtpScreenProps> = () => {
   let resendOtpTimerInterval: any;
 
   const [resendButtonDisabledTime, setResendButtonDisabledTime] = useState(
@@ -43,7 +43,6 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
   const handleCloseModal = () => {
     setModalVisible(false);
   };
-
   const startResendOtpTimer = (start = Boolean) => {
     if (resendOtpTimerInterval) {
       clearInterval(resendOtpTimerInterval);
@@ -59,7 +58,7 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
     }
   };
 
-  //fix timeout that happens when the screen launches
+  //fix timeout that happens when the screen launches//
   useEffect(() => {
     startResendOtpTimer(false);
     return () => {
@@ -80,7 +79,6 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
     // todo
     console.log("todo: Resend OTP");
   }
-
   useEffect(() => {
     startResendOtpTimer();
     return () => {
@@ -103,54 +101,52 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
   return (
     <SafeAreaView className="flex-1 bg-white pt-8 ">
       {/* ============= Header =========== */}
-      <View className="flex-1">
-        <View className="mx-4 flex justify-center pb-8 ">
-          <Text className=" text-[#333333] pl-2 text-4xl">Is this you?</Text>
-          <Text className=" text-[#333333] pl-2 pt-2 text-2xl">
-            Enter the code we just sent to your e-mail
-          </Text>
-        </View>
+      <View className="mx-4 flex justify-center pb-8 ">
+        <Text className=" text-[#333333] pl-2 text-4xl">Is this you?</Text>
+        <Text className=" text-[#333333] pl-2 pt-2 text-2xl">
+          Enter the code we just sent to your e-mail
+        </Text>
+      </View>
 
-        {/* ============= Cell Input =========== */}
-        <View className="mx-4 flex-1">
-          <CodeField
-            ref={ref}
-            {...props}
-            value={value}
-            onChangeText={(text: string) => {
-              setValue(text);
-              handleOtpChange(text);
-            }}
-            cellCount={CELL_COUNT}
-            rootStyle={{ marginBottom: 20, paddingHorizontal: 12 }}
-            keyboardType="number-pad"
-            renderCell={({ index, symbol, isFocused }) => (
-              <View
-                className=""
-                key={index}
-                onLayout={getCellOnLayoutHandler(index)}
+      {/* ============= Cell Input =========== */}
+      <View className="mx-4 flex-1">
+        <CodeField
+          ref={ref}
+          {...props}
+          value={value}
+          onChangeText={(text: string) => {
+            setValue(text);
+            handleOtpChange(text);
+          }}
+          cellCount={CELL_COUNT}
+          rootStyle={{ marginBottom: 20, paddingHorizontal: 12 }}
+          keyboardType="number-pad"
+          renderCell={({ index, symbol, isFocused }) => (
+            <View
+              key={index}
+              onLayout={getCellOnLayoutHandler(index)}
+              style={{
+                height: 40,
+                width: 40,
+                marginLeft: index !== 0 ? 10 : 0,
+                borderBottomWidth: 3,
+                borderColor: isFocused ? "#000000" : "#D9D9D9",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Text
                 style={{
-                  height: 40,
-                  width: 40,
-                  marginLeft: index !== 0 ? 10 : 0,
-                  borderBottomWidth: 3,
-                  borderColor: isFocused ? "#000000" : "#D9D9D9",
-                  justifyContent: "center",
-                  alignItems: "center",
+                  color: "#333",
+                  fontSize: 25,
                 }}
               >
-                <Text
-                  style={{
-                    color: "#333",
-                    fontSize: 25,
-                  }}
-                >
-                  {symbol || (isFocused ? <Cursor /> : "")}
-                </Text>
-              </View>
-            )}
-          />
-          <View className="absolute my-24 right-14 ">
+                {symbol || (isFocused ? <Cursor /> : "")}
+              </Text>
+            </View>
+          )}
+        />
+           <View className="absolute my-24 right-14 ">
             <TouchableOpacity onPress={onResendOtpButtonPress}>
               <View className="flex-row" style={{ flexWrap: "nowrap" }}>
                 <Text className="text-[#343558] underline underline-offset-8">
@@ -162,23 +158,19 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
               </View>
             </TouchableOpacity>
           </View>
-        </View>
       </View>
-      <View className="pb-3 mx-8">
-        <View>
-          {showModal && (
-            <EmailConfirmationPopUP
-              navigation={navigation}
-              visible={modalVisible}
-              onClose={handleCloseModal}
-            />
-          )}
-        </View>
 
+
+      <View className="pb-3 mx-8">
         <TouchableOpacity
           className="bg-[#60D19A]  p-3 rounded-full items-center justify-center"
           onPress={handleOtpSubmit}
         >
+          <View>
+            {showModal && (
+              <LoginModal visible={modalVisible} onClose={handleCloseModal} />
+            )}
+          </View>
           <Text className="text-[#252642] text-lg text-center">Confirm</Text>
         </TouchableOpacity>
       </View>
@@ -186,4 +178,4 @@ const OtpScreen: React.FC<OtpScreenProps> = () => {
   );
 };
 
-export default OtpScreen;
+export default EmailLoging;

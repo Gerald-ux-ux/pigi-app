@@ -46,7 +46,7 @@ const InvestmentSummaryScreen = () => {
   return (
     <SafeAreaView className="flex-1 pt-8 ">
       {/* ============= Correct Header section =========== */}
-      <View className="pb-12">
+      <View className="pb-6">
         <View className="flex-row justify-center items-center mx-6 ">
           <TouchableOpacity
             className="bg-white rounded-full p-1 absolute left-0"
@@ -124,7 +124,7 @@ const InvestmentSummaryScreen = () => {
           </View>
         </View>
 
-        <View className="pb-6">
+        <View className="pb-3">
           <View>
             {showModal && (
               <InvestmentSuccessPopUp

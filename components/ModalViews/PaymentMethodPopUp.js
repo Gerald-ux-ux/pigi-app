@@ -70,7 +70,7 @@ export const PaymentMethodPopUp = ({ visible, onClose }) => {
             <TouchableOpacity
               className="pb-4"
               onPress={() => {
-                navigation.navigate("Bank");
+                    navigation.navigate("Bank");
               }}
             >
               <View className="flex-row  items-center">

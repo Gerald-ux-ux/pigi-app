@@ -28,7 +28,7 @@ const LandingScreen = () => {
         Investment made easy
       </Text>
 
-      <View className="px-6 py-6">
+      <View className="px-6 py-3">
         <TouchableOpacity
           className="bg-[#60D19A] p-4 mx-8 rounded-full items-center justify-center"
           onPress={handlePress}

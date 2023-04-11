@@ -53,7 +53,7 @@ useEffect(() => {
           onPress={handleDismiss}
           style={[styles.buttonContainer, styles.centered]}
         >
-          <Text style={styles.buttonText}>Dismiss</Text>
+          <Text style={styles.buttonText}>Add Phone</Text>
         </TouchableOpacity>
         <Confetti ref={confettiRef} />
       </TouchableOpacity>

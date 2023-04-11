@@ -23,7 +23,7 @@ const MpesaWithdrawalScreen = () => {
   return (
     <SafeAreaView className="flex-1 pt-8 ">
       {/* ============= Header section =========== */}
-      <View className="mx-4 flex-row  pb-12 ">
+      <View className="mx-4 flex-row  pb-6 ">
         <TouchableOpacity
           className="bg-white rounded-full p-1"
           onPress={() => navigation.goBack()}
@@ -52,7 +52,7 @@ const MpesaWithdrawalScreen = () => {
               <Text>No accounts added</Text>
             </View>
 
-            <View className="pb-6">
+            <View className="pb-3">
               <TouchableOpacity
                 className="bg-[#60D19A] p-3 mx-8 rounded-full items-center justify-center"
                 onPress={handleMpesaPress}
@@ -65,57 +65,59 @@ const MpesaWithdrawalScreen = () => {
           </View>
         ) : (
           <View className="flex-1">
-            <View className="pt-4 flex-1">
-              <View
-                className="bg-[#F5F7FA] 
+            <ScrollView>
+              <View className="pt-4 flex-1">
+                <View
+                  className="bg-[#F5F7FA] 
              mx-4 h-24 w-100 rounded-2xl my-3 "
-              >
-                <View className="flex-row items-center mx-4 ">
-                  <Text className="text-[#323232] font-normal text-base my-4">
-                    KCB
-                  </Text>
-                  <Text className="text-[#323232] font-normal absolute right-0 text-base">
-                    ***2434
+                >
+                  <View className="flex-row items-center mx-4 ">
+                    <Text className="text-[#323232] font-normal text-base my-4">
+                      KCB
+                    </Text>
+                    <Text className="text-[#323232] font-normal absolute right-0 text-base">
+                      ***2434
+                    </Text>
+                  </View>
+                  <Text className="text-[#323232] font-normal text-base mx-4">
+                    John Barasa
                   </Text>
                 </View>
-                <Text className="text-[#323232] font-normal text-base mx-4">
-                  John Barasa
-                </Text>
-              </View>
-              <View
-                className="bg-[#F5F7FA] 
+                <View
+                  className="bg-[#F5F7FA] 
              mx-4 h-24 w-100 rounded-2xl  "
-              >
-                <View className="flex-row items-center mx-4 ">
-                  <Text className="text-[#323232] font-normal text-base my-4">
-                    Equity Bank
-                  </Text>
-                  <Text className="text-[#323232] font-normal absolute right-0 text-base">
-                    **** 3890
+                >
+                  <View className="flex-row items-center mx-4 ">
+                    <Text className="text-[#323232] font-normal text-base my-4">
+                      Equity Bank
+                    </Text>
+                    <Text className="text-[#323232] font-normal absolute right-0 text-base">
+                      **** 3890
+                    </Text>
+                  </View>
+                  <Text className="text-[#323232] font-normal text-base mx-4">
+                    John Barasa
                   </Text>
                 </View>
-                <Text className="text-[#323232] font-normal text-base mx-4">
-                  John Barasa
-                </Text>
-              </View>
-              <View
-                className="bg-[#F5F7FA] 
+                <View
+                  className="bg-[#F5F7FA] 
              mx-4 h-24 w-100 rounded-2xl my-3  "
-              >
-                <View className="flex-row items-center mx-4 ">
-                  <Text className="text-[#323232] font-normal text-base my-4">
-                    Goldman Sachs
-                  </Text>
-                  <Text className="text-[#323232] font-normal absolute right-0 text-base">
-                    **** 3890
+                >
+                  <View className="flex-row items-center mx-4 ">
+                    <Text className="text-[#323232] font-normal text-base my-4">
+                      Goldman Sachs
+                    </Text>
+                    <Text className="text-[#323232] font-normal absolute right-0 text-base">
+                      **** 3890
+                    </Text>
+                  </View>
+                  <Text className="text-[#323232] font-normal text-base mx-4">
+                    John Barasa
                   </Text>
                 </View>
-                <Text className="text-[#323232] font-normal text-base mx-4">
-                  John Barasa
-                </Text>
               </View>
-            </View>
-            <View className="pb-6">
+            </ScrollView>
+            <View className="pb-3">
               <TouchableOpacity
                 className="bg-[#60D19A] p-3 mx-8 rounded-full items-center justify-center"
                 onPress={handleBankPress}

@@ -8,14 +8,16 @@ import {
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import Checkbox from "expo-checkbox";
+import LoginModal from "../components/ModalViews/LoginModal";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
   const [isSelected, setSelected] = useState();
 
   const handlePress = () => {
-    [navigation.navigate("Home")];
+    [navigation.navigate("Email")];
   };
+  
 
   return (
     <SafeAreaView className="flex-1 bg-white pt-8 ">
@@ -63,7 +65,8 @@ const LoginScreen = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <View className={`pt-4 px-6 pb-8 ${isSelected ? "" : "opacity-50"}`}>
+      <View className={`pt-4 px-6 pb-3 ${isSelected ? "" : "opacity-50"}`}>
+
         <TouchableOpacity
           className="bg-[#60D19A] p-3 mx-8 rounded-full items-center justify-center"
           onPress={handlePress}

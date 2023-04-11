@@ -12,10 +12,10 @@ import Confetti from "react-native-confetti";
 import { useEffect, useRef } from "react";
 import { useNavigation } from "@react-navigation/native";
 
-const HEIGHT_MODAL = 240;
+const HEIGHT_MODAL = 200;
 const WIDTH = Dimensions.get("window").width;
 
-export const InvestmentSuccessPopUp = ({ visible, onClose }) => {
+export const LoginModal = ({ visible, onClose }) => {
   const navigation = useNavigation();
   const confettiRef = useRef(null);
   useEffect(() => {
@@ -35,26 +35,24 @@ export const InvestmentSuccessPopUp = ({ visible, onClose }) => {
         <View style={[styles.modal, styles.centered]}>
           <CheckCircleIcon
             size={40}
-            color="#48AF2C"
-            style={{ marginBottom: 10 }}
+            color="#008631"
+            style={{ marginBottom: 20 }}
           />
 
           <View className="mx-8">
-            <Text className="text-3xl font-medium text-center pb-2">
-              25, 159.10 KES
-            </Text>
-            <Text className="text-base text-center">Investment successful</Text>
+            <Text className="text-3xl text-center">Email confirmed</Text>
+      
           </View>
         </View>
 
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("Home");
             onClose();
+            navigation.navigate("Home");
           }}
           style={[styles.buttonContainer, styles.centered]}
         >
-          <Text style={styles.buttonText}>Dismiss</Text>
+          <Text style={styles.buttonText}>Go to home</Text>
         </TouchableOpacity>
         <Confetti ref={confettiRef} />
       </TouchableOpacity>
@@ -102,4 +100,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default InvestmentSuccessPopUp;
+export default LoginModal;

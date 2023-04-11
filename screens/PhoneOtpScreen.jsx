@@ -44,7 +44,6 @@ const PhoneOtpScreen: React.FC<PhoneOtpScreens> = () => {
     setModalVisible(false);
   };
 
-
   const startResendOtpTimer = (start = Boolean) => {
     if (resendOtpTimerInterval) {
       clearInterval(resendOtpTimerInterval);
@@ -152,29 +151,27 @@ const PhoneOtpScreen: React.FC<PhoneOtpScreens> = () => {
               </View>
             )}
           />
+          <View className="absolute my-24 right-14 ">
+            <TouchableOpacity onPress={onResendOtpButtonPress}>
+              <View className="flex-row" style={{ flexWrap: "nowrap" }}>
+                <Text className="text-[#343558] underline underline-offset-8">
+                  Resend Code
+                </Text>
+                <Text className="pr-2 -right-14 absolute -bottom-0 text-[#b1b1b1]">
+                  in {resendButtonDisabledTime}s
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
 
-        <View className="flex-1 absolute right-0 bottom-96 mx-20 pb-2">
-          <TouchableOpacity onPress={onResendOtpButtonPress}>
-            <View className="flex-row" style={{ flexWrap: "nowrap" }}>
-              <Text className="text-[#343558] underline underline-offset-8">
-                Resend Code
-              </Text>
-              <Text className="pr-2 -right-16 absolute -bottom-0 text-[#b1b1b1]">
-                in {resendButtonDisabledTime}s
-              </Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-
-        <View className="pb-4 mx-8">
-
+        <View className="pb-3 mx-8">
           <View>
             {showModal && (
               <ModalView visible={modalVisible} onClose={handleCloseModal} />
             )}
           </View>
-      
+
           <TouchableOpacity
             className="bg-[#60D19A]  p-3 rounded-full items-center justify-center"
             onPress={handleOtpSubmit}

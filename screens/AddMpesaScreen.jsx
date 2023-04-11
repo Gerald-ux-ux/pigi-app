@@ -46,13 +46,10 @@ const AddMpesaScreen = () => {
     }
   };
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={{ flex: 1 }}
-    >
+    <>
       <SafeAreaView className="flex-1 pt-8 ">
         {/* ============= Header section =========== */}
-        <View className="mx-4 flex-row  pb-12 ">
+        <View className="mx-4 flex-row  pb-6 ">
           <TouchableOpacity
             className="bg-white rounded-full p-1"
             onPress={() => navigation.goBack()}
@@ -117,7 +114,7 @@ const AddMpesaScreen = () => {
               worry, we’ll refund it immediately
             </Text>
           </View>
-          <View className="pb-6">
+          <View className="pb-3">
             <View>
               {showModal && (
                 <AccountAddModal
@@ -138,7 +135,7 @@ const AddMpesaScreen = () => {
           </View>
         </View>
       </SafeAreaView>
-    </KeyboardAvoidingView>
+    </>
   );
 };
 

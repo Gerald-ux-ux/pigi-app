@@ -22,7 +22,8 @@ import ExchangeRates from "../components/ExhangeRates";
 import InvsestmentOptionPopUp from "../components/ModalViews/InvsestmentOptionPopUp";
 
 const AmountScreen = () => {
-  const handleIconPress = () => {};
+  const handleIconPress = () => { };
+  
 
   const [modalVisible, setModalVisible] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -44,7 +45,7 @@ const AmountScreen = () => {
   return (
     <SafeAreaView className="flex-1 pt-8">
       {/* ============= Correct Header section =========== */}
-      <View className="pb-12">
+      <View className="pb-6">
         <View className="flex-row justify-center items-center mx-6 ">
           <TouchableOpacity
             className="bg-white rounded-full p-1 absolute left-0"
@@ -144,7 +145,7 @@ const AmountScreen = () => {
           </View>
         </TouchableOpacity>
 
-        <View className="pb-6">
+        <View className="pb-3">
           <TouchableOpacity
             className="bg-[#60D19A] p-3 mx-8 rounded-full items-center justify-center"
             onPress={() => navigation.navigate("InvestmentSummary")}
